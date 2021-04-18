@@ -1,0 +1,29 @@
+.searchBox {
+  height: 30px;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  display: flex;
+}
+
+.searchBox:hover {
+  filter: brightness(1.4);
+}
+
+.searchIcon {
+  color: #f59a22;
+  height: 35px !important;
+  width: 35px !important;
+}
+
+.input {
+  width: 1200px;
+  height: 30px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  font-style: italic;
+  font-size: 15px;
+  background-color: #f7f9fc;
+  border-color: #f59a22;
+  border-width: 2px;
+}

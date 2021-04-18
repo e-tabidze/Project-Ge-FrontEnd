@@ -1,0 +1,15 @@
+.userpage-main-container {
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+}
+
+.options {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.title {
+    display: flex;
+    text-align: left;
+}

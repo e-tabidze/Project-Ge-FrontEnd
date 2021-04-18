@@ -1,0 +1,30 @@
+.homepage-main-container {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  margin-top: 50px;
+  margin-left: 10px;
+}
+
+.homepage-content {
+  max-width: 1400px !important;
+  justify-content: center;
+  align-items: center;
+}
+
+.advertising-component {
+  max-width: 1200px !important;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 100px;
+}
+
+.right {
+  border: 2px solid grey;
+  width: 350px;
+  height: 450px;
+  border-radius: 12px;
+  background-color: lightblue;
+  margin-bottom: 20px;
+} 

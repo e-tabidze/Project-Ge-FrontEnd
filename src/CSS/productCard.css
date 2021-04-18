@@ -1,0 +1,42 @@
+.productcard-main-container {
+  padding: 2px;
+  border: 1px solid #ffffff;
+  border-radius: 6px;
+  width: 300px;
+  height: 400px !important;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 10px;
+  margin: 1px;
+}
+
+.productcard-main-container:hover {
+  border: 1px solid #f59a22;
+  box-shadow: 0 4px 8px 0 #ff9c2442, 0 6px 20px 0 #ff9c2442;
+}
+.product-card-wrapper {
+  border-radius: 4px;
+}
+
+.jewel-image {
+  max-height: 325px;
+  max-width: 295px;
+  border-radius: 4px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.jewel-description {
+  overflow: hidden;
+  font-size: 14px;
+  margin-bottom: 15px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.jewel-price {
+  line-height: 1.38;
+  font-weight: 700;
+}

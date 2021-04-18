@@ -1,0 +1,20 @@
+.register-form {
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  color: whitesmoke;
+}
+
+.register-submit {
+  background-color: whitesmoke;
+  color: black;
+  border-color: black;
+  background-color: whitesmoke;
+  cursor: pointer;
+}
+
+.register-submit:hover {
+  border: none;
+}

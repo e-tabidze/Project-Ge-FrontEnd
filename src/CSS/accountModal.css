@@ -1,0 +1,25 @@
+.account-modal-container {
+  position: absolute;
+  top: calc(30% - 150px);
+  left: calc(50% - 400px);
+  z-index: 3;
+}
+
+.account-modal-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 800px;
+  height: 400px;
+  background-color: #f59a22;
+  border: 1px solid #f59a22;
+  border-radius: 15px;
+}
+
+.closeicon {
+  position: relative;
+  top: -185px;
+  right: -760px;
+  color: #ffffff;
+}
