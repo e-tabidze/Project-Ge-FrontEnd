@@ -7,7 +7,7 @@
 }
 
 .homepage-content {
-  max-width: 1400px !important;
+  max-width: 1300px !important;
   justify-content: center;
   align-items: center;
 }
@@ -22,9 +22,9 @@
 
 .right {
   border: 2px solid grey;
-  width: 350px;
+  width: 280px;
   height: 450px;
   border-radius: 12px;
   background-color: lightblue;
   margin-bottom: 20px;
-} 
+}

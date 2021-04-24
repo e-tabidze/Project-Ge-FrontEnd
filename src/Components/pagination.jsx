@@ -3,9 +3,8 @@ import ProductCard from "./productCard";
 
 import "../CSS/pagination.css";
 
-const Pagination = ({ jewels }) => {
+const Pagination = ({ jewels, itemsPerPage }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(16);
 
   const [pageNumberLimit, setPageNumberLimit] = useState(5);
   const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(5);

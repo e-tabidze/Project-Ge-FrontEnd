@@ -4,6 +4,9 @@ import {
   getStones,
   getMetals,
   getPieces,
+  getSuperJewels,
+  getVipJewels,
+  getDefaultJewels,
 } from "../Services/APIEndpoints";
 import Filter from "../Reusable components/filter";
 import Pagination from "../Components/pagination";
@@ -14,6 +17,9 @@ import "../CSS/homePage.css";
 
 const HomePage = () => {
   const [jewels, setJewels] = useState([]);
+  const [superJewels, setSuperJewels] = useState([]);
+  const [vipJewels, setVipJewels] = useState([]);
+  const [defaultJewels, setDefaultJewels] = useState([]);
   const [pieces, setPieces] = useState(null);
   const [metals, setMetals] = useState(null);
   const [stones, setStones] = useState(null);
@@ -24,11 +30,29 @@ const HomePage = () => {
     handleGetMetals();
     handleGetStones();
     handleGetJewels();
+    handleGetSuperJewels();
+    handleGetVipJewels();
+    handleGetDefaultJewels();
   }, []);
 
   const handleGetJewels = async () => {
-    let jewelData = await getJewels(setJewels);
+    let jewelData = await getJewels();
     setJewels(jewelData);
+  };
+
+  const handleGetSuperJewels = async () => {
+    let jewelData = await getSuperJewels();
+    setSuperJewels(jewelData);
+  };
+
+  const handleGetVipJewels = async () => {
+    let jewelData = await getVipJewels();
+    setVipJewels(jewelData);
+  };
+
+  const handleGetDefaultJewels = async () => {
+    let jewelData = await getDefaultJewels();
+    setDefaultJewels(jewelData);
   };
 
   const handleGetPieces = async () => {
@@ -123,7 +147,24 @@ const HomePage = () => {
           <SearchBar onChange={handleSearchByName} />
           <AdSlider />
         </div>
-        <div>{jewels.length != 0 && <Pagination jewels={jewels} />}</div>
+        <h1>Super</h1>
+        <div>
+          {superJewels.length != 0 && (
+            <Pagination jewels={superJewels} itemsPerPage={8} />
+          )}
+        </div>
+        <h1>VIP</h1>
+        <div>
+          {vipJewels.length != 0 && (
+            <Pagination jewels={vipJewels} itemsPerPage={8} />
+          )}
+        </div>
+        <h1>სტანდარტული განცხადებები</h1>
+        <div>
+          {defaultJewels.length != 0 && (
+            <Pagination jewels={defaultJewels} itemsPerPage={4} />
+          )}
+        </div>
       </div>
       <div>
         <div className="right">

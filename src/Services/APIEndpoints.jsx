@@ -6,6 +6,24 @@ export function getJewels() {
   });
 }
 
+export function getSuperJewels() {
+  return http.get("http://localhost:3000/api/jewels/super").then((res) => {
+    return res.data;
+  });
+}
+
+export function getVipJewels() {
+  return http.get("http://localhost:3000/api/jewels/vip").then((res) => {
+    return res.data;
+  });
+}
+
+export function getDefaultJewels() {
+  return http.get("http://localhost:3000/api/jewels/default").then((res) => {
+    return res.data;
+  });
+}
+
 export function getJewel(id) {
   return http
     .put(`http://localhost:3000/api/jewels/jewel`, { id: id })
