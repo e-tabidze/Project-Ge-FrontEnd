@@ -2,7 +2,6 @@
   padding: 2px;
   border: 1px solid #ffffff;
   border-radius: 6px;
-  width: 300px;
   height: 400px !important;
   background-color: #ffffff;
   display: flex;
@@ -22,7 +21,7 @@
 
 .jewel-image {
   max-height: 325px;
-  max-width: 295px;
+  max-width: 260px;
   border-radius: 4px;
   object-fit: contain;
   margin: 0 auto;

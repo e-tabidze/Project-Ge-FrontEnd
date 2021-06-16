@@ -9,7 +9,16 @@
   justify-content: space-evenly;
 }
 
-.title {
+.textUser {
     display: flex;
     text-align: left;
+    font-size: 18px;
+    margin-top: 20px;
+    color: 	#808080;
+}
+
+.addButton {
+  display: flex;
+  color: #f59a22;
+  cursor: pointer;
 }

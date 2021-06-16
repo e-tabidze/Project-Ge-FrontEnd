@@ -11,6 +11,7 @@ const Pagination = ({ jewels, itemsPerPage }) => {
   const [minPageNumberLimit, setMinPageNumberLimit] = useState(0);
 
   const pages = [];
+
   for (let i = 1; i <= Math.ceil(jewels && jewels.length / itemsPerPage); i++) {
     pages.push(i);
   }

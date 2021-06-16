@@ -1,9 +1,9 @@
 .dropdown-main-container {
-  position: absolute;
   width: fit-content;
   height: fit-content;
+  /* position: absolute;
   left: 1330px;
-  top: 120px;
+  top: 120px; */
   background-color: #ffffff;
   border: 1px solid #f59a22;
   border-radius: 15px;

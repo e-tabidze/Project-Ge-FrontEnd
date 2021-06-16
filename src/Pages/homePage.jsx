@@ -4,9 +4,10 @@ import {
   getStones,
   getMetals,
   getPieces,
-  getSuperJewels,
-  getVipJewels,
-  getDefaultJewels,
+  // getSuperJewels,
+  // getVipJewels,
+  // getDefaultJewels,
+  // getJewel,
 } from "../Services/APIEndpoints";
 import Filter from "../Reusable components/filter";
 import Pagination from "../Components/pagination";
@@ -14,46 +15,58 @@ import AdSlider from "../Components/adSlider";
 import SearchBar from "../Reusable components/searchBar";
 
 import "../CSS/homePage.css";
+import JewelSlider from "../Components/JewelSlider";
+import ProductCard from "../Components/productCard";
 
 const HomePage = () => {
+  // const [jewel, setJewel] = useState({});
   const [jewels, setJewels] = useState([]);
-  const [superJewels, setSuperJewels] = useState([]);
-  const [vipJewels, setVipJewels] = useState([]);
-  const [defaultJewels, setDefaultJewels] = useState([]);
+  // const [superJewels, setSuperJewels] = useState([]);
+  // const [vipJewels, setVipJewels] = useState([]);
+  // const [defaultJewels, setDefaultJewels] = useState([]);
   const [pieces, setPieces] = useState(null);
   const [metals, setMetals] = useState(null);
   const [stones, setStones] = useState(null);
   const [checkboxStates, setCheckboxStates] = useState({});
+  const [showAllItems, setShowAllItems] = useState(false);
+  // const [isFiltered, setIsFiltered] = useState(0);
 
   useEffect(() => {
+    // handleGetJewel();
+    handleGetJewels();
     handleGetPieces();
     handleGetMetals();
     handleGetStones();
-    handleGetJewels();
-    handleGetSuperJewels();
-    handleGetVipJewels();
-    handleGetDefaultJewels();
+    // handleGetSuperJewels();
+    // handleGetVipJewels();
+    // handleGetDefaultJewels();
   }, []);
+
+  // const handleGetJewel = async () => {
+  //   let jewelObject = await getJewel();
+  //   setJewel(jewelObject);
+  // };
 
   const handleGetJewels = async () => {
     let jewelData = await getJewels();
-    setJewels(jewelData);
+    let actives = jewelData.filter((object) => object.expired === false);
+    setJewels(actives);
   };
 
-  const handleGetSuperJewels = async () => {
-    let jewelData = await getSuperJewels();
-    setSuperJewels(jewelData);
-  };
+  // const handleGetSuperJewels = async () => {
+  //   let jewelData = await getSuperJewels();
+  //   setSuperJewels(jewelData);
+  // };
 
-  const handleGetVipJewels = async () => {
-    let jewelData = await getVipJewels();
-    setVipJewels(jewelData);
-  };
+  // const handleGetVipJewels = async () => {
+  //   let jewelData = await getVipJewels();
+  //   setVipJewels(jewelData);
+  // };
 
-  const handleGetDefaultJewels = async () => {
-    let jewelData = await getDefaultJewels();
-    setDefaultJewels(jewelData);
-  };
+  // const handleGetDefaultJewels = async () => {
+  //   let jewelData = await getDefaultJewels();
+  //   setDefaultJewels(jewelData);
+  // };
 
   const handleGetPieces = async () => {
     let piecesData = await getPieces();
@@ -99,14 +112,16 @@ const HomePage = () => {
     switch (title) {
       case "ნაკეთობა":
         handlePieceSelect(item);
+        setShowAllItems(!showAllItems);
         break;
       case "მასალა":
         handleMetalSelect(item);
+        setShowAllItems(!showAllItems);
         break;
       case "შიგთავსი":
         handleStoneSelect(item);
+        setShowAllItems(!showAllItems);
         break;
-
       default:
         break;
     }
@@ -118,6 +133,8 @@ const HomePage = () => {
     });
     console.log(filtered);
     setJewels(filtered);
+    // setShowAllItems(!showAllItems);
+    // setIsFiltered(filtered.length);
   };
 
   return (
@@ -146,25 +163,36 @@ const HomePage = () => {
         <div className="advertising-component">
           <SearchBar onChange={handleSearchByName} />
           <AdSlider />
+          <>
+            <Pagination jewels={jewels} itemsPerPage={8} />
+          </>
+
+          {/* {jewels.map((jewel) => (
+            <>
+              {jewel.expired === false && (
+                <Pagination jewels={jewels} itemsPerPage={8} />
+              )}
+            </>
+          ))} */}
         </div>
-        <h1>Super</h1>
-        <div>
-          {superJewels.length != 0 && (
-            <Pagination jewels={superJewels} itemsPerPage={8} />
-          )}
-        </div>
-        <h1>VIP</h1>
-        <div>
-          {vipJewels.length != 0 && (
-            <Pagination jewels={vipJewels} itemsPerPage={8} />
-          )}
-        </div>
-        <h1>სტანდარტული განცხადებები</h1>
-        <div>
-          {defaultJewels.length != 0 && (
-            <Pagination jewels={defaultJewels} itemsPerPage={4} />
-          )}
-        </div>
+
+        {/* {jewels.length > 0 && (
+          <JewelSlider show={4}>
+            {jewels.map((jewel) => (
+              <>{jewel.type.name === "VIP" && <ProductCard jewel={jewel} />}</>
+            ))}
+          </JewelSlider>
+        )} */}
+
+        {/* {showAllItems && (
+          <div>
+            {jewels.length != 0 && (
+              <>
+                <Pagination jewels={jewels} itemsPerPage={8} />
+              </>
+            )}
+          </div>
+        )} */}
       </div>
       <div>
         <div className="right">

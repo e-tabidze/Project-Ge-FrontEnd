@@ -3,7 +3,7 @@ import {
   getMetals,
   getPieces,
   getStones,
-  getTypes,
+  // getTypes,
   postJewels,
 } from "../Services/APIEndpoints";
 import Joi from "joi-browser";
@@ -24,9 +24,9 @@ const NewProductModal = ({ handleNewProductModalToggle, currentUser }) => {
   const [pieces, setPieces] = useState(null);
   const [metals, setMetals] = useState(null);
   const [stones, setStones] = useState(null);
-  const [types, setTypes] = useState(null);
+  // const [types, setTypes] = useState(null);
   const [newJewel, setNewJewel] = useState({
-    duration: "",
+    // duration: "",
     name: "",
     pieceId: "",
     price: "",
@@ -39,10 +39,9 @@ const NewProductModal = ({ handleNewProductModalToggle, currentUser }) => {
     contactNumber: "",
     description: "",
     productImage: {},
-    typeId: "",
+    // typeId: "",
   });
   const [errors, setErrors] = useState({
-    duration: "",
     name: "",
     pieceId: "",
     price: "",
@@ -55,22 +54,21 @@ const NewProductModal = ({ handleNewProductModalToggle, currentUser }) => {
     contactNumber: "",
     description: "",
     productImage: "",
-    typeId: "",
+    // typeId: "",
   });
 
   useEffect(() => {
     handleGetPieces();
     handleGetMetals();
     handleGetStones();
-    handleGetTypes();
+    // handleGetTypes();
   }, []);
 
   const schema = {
-    duration: Joi.number()
-      .required()
-      .max(100)
-      .default(30)
-      .label("ხანგრძლივობა"),
+    // duration: Joi.number()
+    //   .max(100)
+    //   .default(30)
+    //   .label("ხანგრძლივობა"),
     name: Joi.string().required().max(100).label("დასახელება"),
     pieceId: Joi.string().required().max(50).label("ნაკეთობა"),
     price: Joi.number().required().max(10000).label("ფასი"),
@@ -83,7 +81,7 @@ const NewProductModal = ({ handleNewProductModalToggle, currentUser }) => {
     contactPerson: Joi.string().label("საკონტაქტი პირი"),
     description: Joi.string().max(512).label("ნივთის აღწერა"),
     productImage: Joi.any(),
-    typeId: Joi.string().required(),
+    // typeId: Joi.string().required(),
   };
 
   const handleGetPieces = async () => {
@@ -101,10 +99,10 @@ const NewProductModal = ({ handleNewProductModalToggle, currentUser }) => {
     setStones(stonesData);
   };
 
-  const handleGetTypes = async () => {
-    let typesData = await getTypes();
-    setTypes(typesData);
-  };
+  // const handleGetTypes = async () => {
+  //   let typesData = await getTypes();
+  //   setTypes(typesData);
+  // };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -156,13 +154,12 @@ const NewProductModal = ({ handleNewProductModalToggle, currentUser }) => {
     }
   };
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const demoErrors = validate();
     setErrors((prevState) => ({
       ...prevState,
-      ["duration"]: demoErrors ? demoErrors.duration : null,
+      // ["duration"]: demoErrors ? demoErrors.duration : null,
       ["name"]: demoErrors ? demoErrors.name : null,
       ["pieceId"]: demoErrors ? demoErrors.piece : null,
       ["price"]: demoErrors ? demoErrors.price : null,
@@ -175,14 +172,14 @@ const NewProductModal = ({ handleNewProductModalToggle, currentUser }) => {
       ["contactPerson"]: demoErrors ? demoErrors.contactPerson : null,
       ["description"]: demoErrors ? demoErrors.description : null,
       ["productImage"]: demoErrors ? demoErrors.productImage : null,
-      ["typeId"]: demoErrors ? demoErrors.type : null,
+      // ["typeId"]: demoErrors ? demoErrors.type : null,
     }));
     if (demoErrors) console.log(demoErrors, "demoerrors", newJewel);
     else {
       let userToken = localStorage.getItem("token");
 
       let jewelFormData = objectToFormData(newJewel);
-      console.log(newJewel)
+      console.log(newJewel);
       postJewels(jewelFormData, userToken);
     }
   };
@@ -315,7 +312,25 @@ const NewProductModal = ({ handleNewProductModalToggle, currentUser }) => {
                   </Select>
                 )}
               </FormControl>
-              <TextField
+             
+              {errors.size && <span>{errors.size}</span>}
+            </div>
+            <div className="inner-blocks">
+              {/* <TextField
+                className="input-form"
+                name="duration"
+                value={newJewel.duration}
+                onChange={handleChange}
+                label="ხანგრძლივობა (დღეები) "
+                // error={errors.duration}
+                size="small"
+                variant="outlined"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+              />
+              {errors.duration && <span>{errors.duration}</span>} */}
+               <TextField
                 className="input-form"
                 name="weight"
                 value={newJewel.weight}
@@ -343,24 +358,6 @@ const NewProductModal = ({ handleNewProductModalToggle, currentUser }) => {
                   shrink: true,
                 }}
               />
-              {errors.size && <span>{errors.size}</span>}
-            </div>
-            <div className="inner-blocks">
-              <TextField
-                required
-                className="input-form"
-                name="duration"
-                value={newJewel.duration}
-                onChange={handleChange}
-                label="ხანგრძლივობა (დღეები) "
-                // error={errors.duration}
-                size="small"
-                variant="outlined"
-                InputLabelProps={{
-                  shrink: true,
-                }}
-              />
-              {errors.duration && <span>{errors.duration}</span>}
 
               <TextField
                 required
@@ -408,7 +405,7 @@ const NewProductModal = ({ handleNewProductModalToggle, currentUser }) => {
                 }}
               />
               {errors.contactNumber && <span>{errors.contactNumber}</span>}
-
+              {/* 
               <FormControl>
                 <InputLabel>განცხადების ტიპი</InputLabel>
                 {types && (
@@ -432,7 +429,7 @@ const NewProductModal = ({ handleNewProductModalToggle, currentUser }) => {
                     })}
                   </Select>
                 )}
-              </FormControl>
+              </FormControl> */}
             </div>
           </div>
 
@@ -442,7 +439,7 @@ const NewProductModal = ({ handleNewProductModalToggle, currentUser }) => {
             <TextField
               fullWidth
               className="input-form description"
-              style={{"height": "100px"}}
+              style={{ height: "100px" }}
               name="description"
               value={newJewel.description}
               onChange={handleChange}
@@ -456,7 +453,7 @@ const NewProductModal = ({ handleNewProductModalToggle, currentUser }) => {
               inputProps={{
                 maxLength: 512,
                 style: {
-                  height: '100px',
+                  height: "100px",
                 },
               }}
               helperText="მაქსიმუმ 512 სიმბოლო"

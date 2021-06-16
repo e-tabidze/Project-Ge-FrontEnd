@@ -24,6 +24,8 @@
   background-color: #ffffff;
   border: 4px solid #f59a22;
   border-radius: 15px;
+  box-shadow: 1px 1px 60px 1px #888888;
+
 }
 
 .inner-blocks {
@@ -64,6 +66,10 @@
   align-items: flex-start;
   margin-left: 100px;
   margin-top: 20px;
+}
+
+.new-product-submit {
+  margin-top: 50px;
 }
 .MuiOutlinedInput-root {
   margin: 10px;

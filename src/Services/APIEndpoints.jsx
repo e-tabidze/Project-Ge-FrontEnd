@@ -6,23 +6,23 @@ export function getJewels() {
   });
 }
 
-export function getSuperJewels() {
-  return http.get("http://localhost:3000/api/jewels/super").then((res) => {
-    return res.data;
-  });
-}
+// export function getSuperJewels() {
+//   return http.get("http://localhost:3000/api/jewels/super").then((res) => {
+//     return res.data;
+//   });
+// }
 
-export function getVipJewels() {
-  return http.get("http://localhost:3000/api/jewels/vip").then((res) => {
-    return res.data;
-  });
-}
+// export function getVipJewels() {
+//   return http.get("http://localhost:3000/api/jewels/vip").then((res) => {
+//     return res.data;
+//   });
+// }
 
-export function getDefaultJewels() {
-  return http.get("http://localhost:3000/api/jewels/default").then((res) => {
-    return res.data;
-  });
-}
+// export function getDefaultJewels() {
+//   return http.get("http://localhost:3000/api/jewels/default").then((res) => {
+//     return res.data;
+//   });
+// }
 
 export function getJewel(id) {
   return http
@@ -50,11 +50,11 @@ export function getPieces() {
   });
 }
 
-export function getTypes() {
-  return http.get("http://localhost:3000/api/types/").then((res) => {
-    return res.data;
-  });
-}
+// export function getTypes() {
+//   return http.get("http://localhost:3000/api/types/").then((res) => {
+//     return res.data;
+//   });
+// }
 
 export function getUserJewels(userId) {
   return http.post("http://localhost:3000/api/users/jewels", { userId });

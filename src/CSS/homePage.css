@@ -7,22 +7,22 @@
 }
 
 .homepage-content {
-  max-width: 1300px !important;
+  /* width: 80%; */
   justify-content: center;
   align-items: center;
 }
 
 .advertising-component {
-  max-width: 1200px !important;
+  max-width: 1100px !important;
   margin: 0 auto;
   justify-content: center;
   align-items: center;
-  margin: 0px 100px;
+  margin: 0px 70px;
 }
 
 .right {
   border: 2px solid grey;
-  width: 280px;
+  /* max-width: 280px; */
   height: 450px;
   border-radius: 12px;
   background-color: lightblue;

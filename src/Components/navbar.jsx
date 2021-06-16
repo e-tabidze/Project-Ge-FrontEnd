@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import SearchBar from "../Reusable components/searchBar";
+// import SearchBar from "../Reusable components/searchBar";
 import Button from "../Reusable components/button";
 import DropDownMenu from "./dropdownMenu";
 import AccountModal from "./accountModal";
@@ -9,10 +9,7 @@ import MenuItem from "../Reusable components/menuItem";
 
 import "../CSS/navbar.css";
 
-const Navbar = ({
-  // handleSearchByName,
-  currentUser,
-}) => {
+const Navbar = ({ handleSearchByName, currentUser }) => {
   const [dropDownActive, setDropDownActive] = useState(false);
   const [accountModalActive, setAccoutModalActive] = useState(false);
 
@@ -36,58 +33,58 @@ const Navbar = ({
       </Link>
 
       {/* <SearchBar onChange={handleSearchByName} /> */}
+      <div className="items">
+        {currentUser && (
+          <Link to="/my-profile">
+            <span className="email-initial">{currentUser.email.charAt(0)}</span>
+          </Link>
+        )}
 
-      {currentUser && (
-        <Link to="/my-profile">
-          <span className="email-initial">{currentUser.email.charAt(0)}</span>
-        </Link>
-      )}
-
-      {currentUser ? (
-        <Button
-          className="profile-button"
-          label="პირადი კაბინეტი"
-          onClick={handleNavigation}
-        />
-      ) : (
-        <Button
-          className="profile-button"
-          label="პირადი კაბინეტი"
-          onClick={handleAccountModalToggle}
-        />
-      )}
-
-      {accountModalActive && (
-        <>
-          <div className="accountModal">
-            <AccountModal handleAccountModalToggle={handleAccountModalToggle} />
-          </div>
-          <div
-            className="grey-overlay"
+        {currentUser ? (
+          <Button
+            className="profile-button"
+            label="პირადი კაბინეტი"
+            onClick={handleNavigation}
+          />
+        ) : (
+          <Button
+            className="profile-button"
+            label="პირადი კაბინეტი"
             onClick={handleAccountModalToggle}
-          ></div>
-        </>
-      )}
+          />
+        )}
 
-      <MenuItem
-        icon={<i className="fa fa-bars fa-2x" />}
-        className="fa fa-bars fa-2x dropdowmmenuicon"
-        onClick={handleDropDownMenuToggle}
-      />
+        {accountModalActive && (
+          <>
+            <div className="accountModal">
+              <AccountModal
+                handleAccountModalToggle={handleAccountModalToggle}
+              />
+            </div>
+            <div className="grey-overlay" onClick={handleAccountModalToggle} />
+          </>
+        )}
+
+        <MenuItem
+          icon={<i className="fa fa-bars fa-2x" />}
+          className="fa fa-bars fa-2x dropdowmmenuicon"
+          onClick={handleDropDownMenuToggle}
+        />
+      </div>
 
       {dropDownActive && (
         <>
-          <div className="dropdown">
+          <div
+            onMouseLeave={() => setDropDownActive(false)}
+            className="dropdown"
+          >
             <DropDownMenu
               currentUser={currentUser}
               onClick={handleDropDownMenuToggle}
               handleAccountModalToggle={handleAccountModalToggle}
             />
           </div>
-          <div
-            className="grey-overlay"
-            onClick={handleDropDownMenuToggle}
-          ></div>
+          {/* <div className="grey-overlay" onClick={handleDropDownMenuToggle} /> */}
         </>
       )}
     </div>

@@ -16,7 +16,7 @@ const AdSlider = () => {
   const settings = {
     dots: true,
     arrows: true,
-    autoplay: true,
+    // autoplay: true,
     autoplaySpeed: 2000,
     infinite: true,
     speed: 500,

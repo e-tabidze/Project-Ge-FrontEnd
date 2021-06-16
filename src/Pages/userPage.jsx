@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getUserJewels } from "../Services/APIEndpoints";
 import NewProductModal from "../Components/newProductModal";
-import Circle from "../Reusable components/circle";
 import MyProduct from "../Components/myProduct";
 
 import "../CSS/userPage.css";
@@ -30,11 +29,6 @@ const UserPage = ({ currentUser }) => {
         <div>რეკლამა</div>
         <div className="user-settings">
           <div className="options">
-            <Circle
-              label="განცხადების დამატება"
-              onClick={handleNewProductModalToggle}
-            />
-
             {newProductModalActive && (
               <>
                 <div className="newProductModal">
@@ -43,23 +37,20 @@ const UserPage = ({ currentUser }) => {
                     currentUser={currentUser}
                   />
                 </div>
-                <div
-                  className="grey-overlay"
-                  onClick={handleNewProductModalToggle}
-                ></div>
               </>
             )}
-            <Circle label="ბალანსის შევსება" />
-            <Circle label="განცხადების განახლება" />
-            <Circle label="განცხადების წაშლა" />
-            <Circle label="Super" />
-            <Circle label="VIP" />
           </div>
-          <div className="title">
-            <p> მომხმარებლის ID: {currentUser._id[0]} </p>
+          <div className="textUser">
+            მომხმარებლის სახელი: {currentUser.name}
+          </div>
+          <div className="textUser">
+            მომხმარებლის იმეილი: {currentUser.email}
           </div>
           <div className="title">
             <p> ჩემი განცხადებები</p>
+          </div>
+          <div className='addButton' onClick={handleNewProductModalToggle}>
+            <i class="fa fa-plus" /> {" "} ახალი განცხადების დამატება
           </div>
           <div>
             {userJewels &&

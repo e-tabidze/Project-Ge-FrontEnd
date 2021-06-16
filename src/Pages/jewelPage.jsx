@@ -71,10 +71,10 @@ const JewelPage = () => {
               <td> ძვირფასი ქვა: </td>
               <td>{jewel && jewel.stone.name} </td>
             </tr>
-            <tr>
+            {/* <tr>
               <td> განცხადების ტიპი: </td>
               <td>{jewel && jewel.type.name} </td>
-            </tr>
+            </tr> */}
           </table>
           <div className="separator"></div>
           <div className="productdescitle">მსგავსი პროდუქტები</div>

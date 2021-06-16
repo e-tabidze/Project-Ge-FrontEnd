@@ -12,6 +12,13 @@ const MyProduct = ({ jewel }) => {
     setOpenConfirm(!openConfirm);
   };
 
+  let date = jewel.expirationDate;
+  let string = date.toDateString()
+
+  {
+    console.log(string);
+  }
+
   const handleDeleteJewel = async () => {
     let userToken = localStorage.getItem("token");
     try {
@@ -85,16 +92,16 @@ const MyProduct = ({ jewel }) => {
           <table>
             <tr>
               <td>განთავსების თარიღი:</td>
-              <td>{jewel && jewel.piece.name}</td>
+              <td>{jewel && jewel.creationDate}</td>
             </tr>
             <tr>
               <td>ბოლო ვადა:</td>
-              <td>{jewel && jewel.piece.name}</td>
+              <td>{jewel && jewel.expirationDate}</td>
             </tr>
-            <tr>
+            {/* <tr>
               <td> განცხდების სტატუსი: </td>
               <td>{jewel && jewel.type.name} </td>
-            </tr>
+            </tr> */}
             <tr>
               <td>სინჯი:</td>
               <td>{jewel && jewel.standard} </td>
