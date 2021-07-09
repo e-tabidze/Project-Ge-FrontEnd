@@ -6,6 +6,15 @@ export function getJewels() {
   });
 }
 
+export function getSimilarJewels(type) {
+  return http
+    .post("http://localhost:3000/api/jewels/similar", { type: type })
+    .then((res) => {
+      console.log(res.data);
+      return res.data;
+    });
+}
+
 // export function getSuperJewels() {
 //   return http.get("http://localhost:3000/api/jewels/super").then((res) => {
 //     return res.data;

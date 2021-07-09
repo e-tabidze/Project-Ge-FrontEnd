@@ -12,13 +12,6 @@ const MyProduct = ({ jewel }) => {
     setOpenConfirm(!openConfirm);
   };
 
-  let date = jewel.expirationDate;
-  let string = date.toDateString()
-
-  {
-    console.log(string);
-  }
-
   const handleDeleteJewel = async () => {
     let userToken = localStorage.getItem("token");
     try {

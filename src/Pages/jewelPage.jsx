@@ -1,12 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { getJewel } from "../Services/APIEndpoints";
+import { getJewel, getSimilarJewels } from "../Services/APIEndpoints";
 import "../CSS/jewelPage.css";
+import ProductCard from "../Components/productCard";
 
 const JewelPage = () => {
   const [jewel, setJewel] = useState(null);
+  const [similarJewels, setSimilarJewels] = useState(null);
   useEffect(() => {
     handleGetJewel();
   }, []);
+
+  useEffect(() => {
+    if (jewel) {
+      handleGetSimilarJewels();
+    }
+  }, [jewel]);
 
   const handleGetJewel = async () => {
     let jewelId = window.location.pathname.split("/")[2];
@@ -14,10 +22,9 @@ const JewelPage = () => {
     setJewel(jewel);
   };
 
-  const renderSimilarJewel = () => {
-    let pieceType = jewel.piece.name;
-    let metalType = jewel.metal.name;
-    console.log(pieceType, metalType, "types");
+  const handleGetSimilarJewels = async () => {
+    let data = await getSimilarJewels(jewel.piece._id);
+    setSimilarJewels(data);
   };
 
   return (
@@ -78,8 +85,12 @@ const JewelPage = () => {
           </table>
           <div className="separator"></div>
           <div className="productdescitle">მსგავსი პროდუქტები</div>
+          <div>
+            {similarJewels && similarJewels.map((jewel) => {
+              return <ProductCard key={jewel._id} jewel={jewel} />;
+            })}
+          </div>
         </div>
-        <div></div>
       </div>
     </div>
   );
