@@ -3,7 +3,7 @@ import Joi from "joi-browser";
 import Input from "../Reusable components/input";
 import Button from "../Reusable components/button";
 import { registerUser } from "../Services/APIEndpoints";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import "../CSS/registerForm.css";
 
@@ -153,9 +153,9 @@ const RegisterForm = ({ handleModalToggle }) => {
         />
         <span>
           გთხოვთ გაეცნოთ
-          <Link to="/terms" target="_blank">
+          <NavLink to="/terms" target="_blank">
             <a> საიტის წესებს</a>
-          </Link>
+          </NavLink>
         </span>
         <Button
           className="register-submit"

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "../CSS/footer.css";
 
 const Footer = ({ currentUser }) => {
@@ -10,13 +10,13 @@ const Footer = ({ currentUser }) => {
         <h5>ოქროს მარკეტი საქართველოში</h5>
       </div>
       <div className="navigation">
-        <Link to="/terms">
+        <NavLink to="/terms">
           <h5>საიტის წესები</h5>
-        </Link>
+        </NavLink>
         {currentUser && (
-          <Link to="/my-profile">
+          <NavLink to="/my-profile">
             <h5>ჩემი გვერდი</h5>
-          </Link>
+          </NavLink>
         )}
         <h5>რეკლამა</h5>
         <h5>დახმარება</h5>

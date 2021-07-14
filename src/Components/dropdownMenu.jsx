@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import MenuItem from "../Reusable components/menuItem";
 
 import "../CSS/dropdownMenu.css";
@@ -15,13 +15,13 @@ const DropDownMenu = ({ onClick, currentUser }) => {
       <div className="dropdown-container">
         <div className="menu-item">
           {currentUser && (
-            <Link to="/my-profile">
+            <NavLink to="/my-profile">
               <MenuItem
                 icon={<i className="fa fa-user fa-lg icon" />}
                 label={"ჩემი გვერდი"}
                 onClick={(e) => onClick(e)}
               />
-            </Link>
+            </NavLink>
           )}
         </div>
         <div className="menu-item">
@@ -32,13 +32,13 @@ const DropDownMenu = ({ onClick, currentUser }) => {
           />
         </div>
         <div className="menu-item">
-          <Link to="/terms">
+          <NavLink to="/terms">
             <MenuItem
               icon={<i className="fa fa-exclamation-circle fa-lg" />}
               label={"საიტის წესები"}
               onClick={(e) => onClick(e)}
             />
-          </Link>
+          </NavLink>
         </div>
         {currentUser && (
           <MenuItem

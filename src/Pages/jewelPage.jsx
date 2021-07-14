@@ -2,6 +2,14 @@ import React, { useState, useEffect } from "react";
 import { getJewel, getSimilarJewels } from "../Services/APIEndpoints";
 import "../CSS/jewelPage.css";
 import ProductCard from "../Components/productCard";
+// import JewelImageSlider from "../Components/jewelImageSlider";
+
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+import MagicSliderDots from "react-magic-slider-dots";
+import "react-magic-slider-dots/dist/magic-dots.css";
 
 const JewelPage = () => {
   const [jewel, setJewel] = useState(null);
@@ -16,6 +24,28 @@ const JewelPage = () => {
     }
   }, [jewel]);
 
+  const settings = {
+    dots: true,
+    arrows: true,
+    // autoplay: true,
+    autoplaySpeed: 2000,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+
+    appendDots: (dots) => {
+      return (
+        <MagicSliderDots
+          dots={dots}
+          numDotsToShow={4}
+          dotWidth={30}
+          className="dots"
+        />
+      );
+    },
+  };
+
   const handleGetJewel = async () => {
     let jewelId = window.location.pathname.split("/")[2];
     let jewel = await getJewel(jewelId);
@@ -29,18 +59,36 @@ const JewelPage = () => {
 
   return (
     <div>
-      <div>აქ იქნება რეკლამის კონტეინერი</div>
+      <div className="jewel-page-ad">განათავსეთ თქვენი რეკლამა 100x1200</div>
       <div className="jewelPage-main-container">
         <div className="imageSide">
-          {jewel &&
+          {/* {jewel &&
             jewel.productImage.map((img) => {
               return (
-                <img
-                  className="main-image"
-                  src={jewel && `http://localhost:3000/${img}`}
+                // <img
+                //   className="main-image"
+                //   src={jewel && `http://localhost:3000/${img}`}
+                // />
+                <JewelImageSlider
+                  images={img}
+                  jewel={jewel}
+                  // src={`http://localhost:3000/${img}`}
                 />
               );
-            })}
+            })} */}
+          {/* <JewelImageSlider jewel={jewel} /> */}
+          <Slider className="slider" {...settings} style={{ width: "500px" }}>
+            {jewel &&
+              jewel.productImage.map((img, index) => (
+                <div key={index}>
+                  <img
+                    className="bannerImage"
+                    src={jewel && `http://localhost:3000/${img}`}
+                    alt="project-ge"
+                  />
+                </div>
+              ))}
+          </Slider>
         </div>
         <div className="descriptionSide">
           <div className="jewelpage-name"> {jewel && jewel.name} </div>
@@ -86,7 +134,9 @@ const JewelPage = () => {
           <div className="separator"></div>
         </div>
       </div>
-      <div className="productdescitle">მსგავსი პროდუქტები</div>
+      <div className="jewel-page-ad">განათავსეთ თქვენი რეკლამა 100x1200</div>
+
+      <div className="similar-prod-title">მსგავსი პროდუქტები</div>
 
       <div className="similar-products">
         {similarJewels &&
@@ -94,6 +144,7 @@ const JewelPage = () => {
             return <ProductCard key={jewel._id} jewel={jewel} />;
           })}
       </div>
+      <div className="jewel-page-ad">განათავსეთ თქვენი რეკლამა 100x1200</div>
     </div>
   );
 };

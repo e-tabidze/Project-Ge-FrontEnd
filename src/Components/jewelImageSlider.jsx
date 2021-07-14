@@ -5,14 +5,8 @@ import "slick-carousel/slick/slick-theme.css";
 
 import MagicSliderDots from "react-magic-slider-dots";
 import "react-magic-slider-dots/dist/magic-dots.css";
-import "../CSS/bannerSlider.css";
 
-import banner1 from "../Resources/images/banner1.png";
-import banner2 from "../Resources/images/banner2.jpg";
-import banner3 from "../Resources/images/banner3.jpg";
-import banner4 from "../Resources/images/banner4.jpg";
-
-const AdSlider = () => {
+const JewelImageSlider = (jewel) => {
   const settings = {
     dots: true,
     arrows: true,
@@ -35,21 +29,15 @@ const AdSlider = () => {
     },
   };
 
-  const banners = [
-    { image: banner1 },
-    { image: banner2 },
-    { image: banner3 },
-    { image: banner4 },
-  ];
   return (
     <div className="sliderComponent">
       <Slider className="slider" {...settings}>
-        {banners &&
-          banners.map((banner) => (
-            <div key={banner.image}>
+        {jewel &&
+          jewel.productImage.map((img, index) => (
+            <div key={index}>
               <img
                 className="bannerImage"
-                src={banner.image}
+                src={jewel && `http://localhost:3000/${img}`}
                 alt="project-ge"
               />
             </div>
@@ -59,4 +47,4 @@ const AdSlider = () => {
   );
 };
 
-export default AdSlider;
+export default JewelImageSlider;

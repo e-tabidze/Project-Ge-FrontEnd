@@ -1,12 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import "../CSS/productCard.css";
 
 const ProductCard = ({ jewel }) => {
   return (
     <div className="productcard-main-container">
-      <Link to={`/product/${jewel._id}`} className="product-card-wrapper">
+      <NavLink to={`/product/${jewel._id}`} className="product-card-wrapper">
         <img
           src={`http://localhost:3000/${jewel.productImage[0]}`}
           className="jewel-image"
@@ -14,7 +14,7 @@ const ProductCard = ({ jewel }) => {
         />
         <div className="jewel-description"> {jewel.name} </div>
         <div className="jewel-price"> {`${jewel.price} ლარი`} </div>
-      </Link>
+      </NavLink>
     </div>
   );
 };

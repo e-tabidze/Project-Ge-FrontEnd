@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 // import SearchBar from "../Reusable components/searchBar";
 import Button from "../Reusable components/button";
 import DropDownMenu from "./dropdownMenu";
@@ -28,16 +28,16 @@ const Navbar = ({ handleSearchByName, currentUser }) => {
 
   return (
     <div className="navbar-main-container">
-      <Link to="/">
+      <NavLink to="/">
         <img src={logo} alt="gegold logo" className="logo" />
-      </Link>
+      </NavLink>
 
       {/* <SearchBar onChange={handleSearchByName} /> */}
       <div className="items">
         {currentUser && (
-          <Link to="/my-profile">
+          <NavLink to="/my-profile">
             <span className="email-initial">{currentUser.email.charAt(0)}</span>
-          </Link>
+          </NavLink>
         )}
 
         {currentUser ? (
