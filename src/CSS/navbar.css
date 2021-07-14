@@ -6,6 +6,7 @@
   justify-content: space-between;
   position: relative;
   margin-top: 20px;
+  position: relative;
 }
 
 .dropdown {
@@ -54,14 +55,9 @@
 .fa-bars {
   color: #f59a22;
 }
-
-.grey-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: grey;
-  opacity: 0.4;
-  z-index: 2;
+.accountModal {
+  position: fixed;
+  top: 150px;
+  right: 400px;
+  z-index: 999;
 }

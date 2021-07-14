@@ -1,8 +1,6 @@
 .account-modal-container {
-  position: absolute;
-  top: calc(30% - 150px);
-  left: calc(50% - 400px);
-  z-index: 3;
+  z-index: 999;
+  border-radius: 15px;
 }
 
 .account-modal-wrapper {
@@ -15,6 +13,7 @@
   background-color: #f59a22;
   border: 1px solid #f59a22;
   border-radius: 15px;
+  box-shadow: 0 4px 8px 0 #ff9c2442, 0 6px 20px 0 #ff9c2442;
 }
 
 .closeicon {

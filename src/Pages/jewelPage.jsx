@@ -84,13 +84,15 @@ const JewelPage = () => {
             </tr> */}
           </table>
           <div className="separator"></div>
-          <div className="productdescitle">მსგავსი პროდუქტები</div>
-          <div>
-            {similarJewels && similarJewels.map((jewel) => {
-              return <ProductCard key={jewel._id} jewel={jewel} />;
-            })}
-          </div>
         </div>
+      </div>
+      <div className="productdescitle">მსგავსი პროდუქტები</div>
+
+      <div className="similar-products">
+        {similarJewels &&
+          similarJewels.map((jewel) => {
+            return <ProductCard key={jewel._id} jewel={jewel} />;
+          })}
       </div>
     </div>
   );

@@ -20,12 +20,11 @@
   flex-direction: column;
   align-items: inherit;
   width: 800px;
-  height: 850px;
+  max-height: 700px;
   background-color: #ffffff;
   border: 4px solid #f59a22;
   border-radius: 15px;
   box-shadow: 1px 1px 60px 1px #888888;
-
 }
 
 .inner-blocks {
@@ -69,7 +68,7 @@
 }
 
 .new-product-submit {
-  margin-top: 50px;
+  margin: 50px 0px;
 }
 .MuiOutlinedInput-root {
   margin: 10px;
@@ -102,11 +101,11 @@ label {
   margin-top: 15px !important;
 }
 
-.MuiOutlinedInput-root  {
+.MuiOutlinedInput-root {
   max-width: 600px !important;
-  max-height: 100px !important; 
+  max-height: 100px !important;
 }
 
 .MuiInputBase-input .MuiOutlinedInput-input {
-  height: 100px !important; 
+  height: 100px !important;
 }

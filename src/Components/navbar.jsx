@@ -61,7 +61,6 @@ const Navbar = ({ handleSearchByName, currentUser }) => {
                 handleAccountModalToggle={handleAccountModalToggle}
               />
             </div>
-            <div className="grey-overlay" onClick={handleAccountModalToggle} />
           </>
         )}
 

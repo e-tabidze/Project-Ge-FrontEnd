@@ -131,8 +131,7 @@ const HomePage = () => {
     let filtered = demoJewels.filter((item) => {
       return item.name.toLowerCase().includes(symbols.toLowerCase());
     });
-    console.log(filtered);
-    setJewels(filtered);
+    setJewels(filtered, "filtered");
     // setShowAllItems(!showAllItems);
     // setIsFiltered(filtered.length);
   };
