@@ -1,4 +1,5 @@
 .register-form {
+  height: 300px;
   display: flex;
   flex-direction: column;
 }
@@ -17,4 +18,7 @@ h1 {
 
 .register-submit:hover {
   border: none;
+}
+.register-actions {
+  margin-top: 20px !important;
 }

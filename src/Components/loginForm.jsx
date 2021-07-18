@@ -5,6 +5,7 @@ import Input from "../Reusable components/input";
 import { login } from "../Services/APIEndpoints";
 
 import "../CSS/loginForm.css";
+import { NavLink } from "react-router-dom";
 
 const LoginForm = ({ handleModalToggle }) => {
   const [user, setUser] = useState({ email: "", password: "" });
@@ -85,30 +86,37 @@ const LoginForm = ({ handleModalToggle }) => {
     <div className="login-container">
       <h1>შესვლა</h1>
       <form className="login-form" onSubmit={handleSubmit}>
-        <Input
-          className="input-form"
-          name="email"
-          value={user.email}
-          onChange={handleChange}
-          placeholder="თქვენი ელ-ფოსტა"
-          error={errors.email}
-          autoFocus={true}
-        />
-        <Input
-          className="input-form"
-          name="password"
-          value={user.password}
-          onChange={handleChange}
-          type="password"
-          placeholder="პაროლი"
-          error={errors.password}
-        />
-        <Button
-          className="login-submit"
-          label="შესვლა"
-          onClick={handleSubmit}
-          disabled={validate()}
-        />
+        <div className="login-inputs">
+          <Input
+            className="input-form"
+            name="email"
+            value={user.email}
+            onChange={handleChange}
+            placeholder="თქვენი ელ-ფოსტა"
+            error={errors.email}
+            autoFocus={true}
+          />
+          <Input
+            className="input-form"
+            name="password"
+            value={user.password}
+            onChange={handleChange}
+            type="password"
+            placeholder="პაროლი"
+            error={errors.password}
+          />
+        </div>
+        <div className="login-actions">
+          <Button
+            className="login-submit"
+            label="შესვლა"
+            onClick={handleSubmit}
+            disabled={validate()}
+          />
+          <NavLink to="/profile" className="forgot-password">
+            დაგავიწყდათ პაროლი?
+          </NavLink>
+        </div>
       </form>
     </div>
   );

@@ -116,53 +116,57 @@ const RegisterForm = ({ handleModalToggle }) => {
   return (
     <div className="register-container">
       <h1>რეგისტრაცია</h1>
-      <form className="login-form" onSubmit={handleSubmit}>
-        <Input
-          className="input-form"
-          name="name"
-          value={user.name}
-          onChange={handleChange}
-          placeholder="თქვენი სახელი"
-          error={errors.name}
-        />
-        <Input
-          className="input-form"
-          name="email"
-          value={user.email}
-          onChange={handleChange}
-          placeholder="თქვენი ელ-ფოსტა"
-          error={errors.email}
-        />
-        <Input
-          className="input-form"
-          name="password"
-          value={user.password}
-          onChange={handleChange}
-          type="password"
-          placeholder="პაროლი"
-          error={errors.password}
-        />
-        <Input
-          className="input-form"
-          name="repeat_password"
-          value={user.repeat_password}
-          onChange={handleChange}
-          type="password"
-          placeholder="გაიმეორეთ პაროლი"
-          error={errors.repeat_password}
-        />
-        <span>
-          გთხოვთ გაეცნოთ
-          <NavLink to="/terms" target="_blank">
-            <a> საიტის წესებს</a>
-          </NavLink>
-        </span>
-        <Button
-          className="register-submit"
-          label="რეგისტრაცია"
-          onClick={handleSubmit}
-          // disabled={validate()}
-        />
+      <form className="register-form" onSubmit={handleSubmit}>
+        <div className="register-inputs">
+          <Input
+            className="input-form"
+            name="name"
+            value={user.name}
+            onChange={handleChange}
+            placeholder="თქვენი სახელი"
+            error={errors.name}
+          />
+          <Input
+            className="input-form"
+            name="email"
+            value={user.email}
+            onChange={handleChange}
+            placeholder="თქვენი ელ-ფოსტა"
+            error={errors.email}
+          />
+          <Input
+            className="input-form"
+            name="password"
+            value={user.password}
+            onChange={handleChange}
+            type="password"
+            placeholder="პაროლი"
+            error={errors.password}
+          />
+          <Input
+            className="input-form"
+            name="repeat_password"
+            value={user.repeat_password}
+            onChange={handleChange}
+            type="password"
+            placeholder="გაიმეორეთ პაროლი"
+            error={errors.repeat_password}
+          />
+        </div>
+        <div className="register-actions">
+          <span>
+            გთხოვთ გაეცნოთ
+            <NavLink to="/terms" target="_blank">
+              <a> საიტის წესებს</a>
+            </NavLink>
+          </span>
+          <Button
+            className="register-submit"
+            label="რეგისტრაცია"
+            onClick={handleSubmit}
+            // disabled={validate()}
+          />
+        </div>
       </form>
     </div>
   );
